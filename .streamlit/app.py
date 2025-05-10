@@ -192,7 +192,7 @@ if not st.session_state.complete:
 
     
     
-    st.subheader('Select the Agent Topic',divider='rainbow')
+    st.subheader('Select Agent Topic',divider='rainbow')
 
 
     st.session_state["level"]= st.radio(
@@ -204,12 +204,12 @@ if not st.session_state.complete:
 
     chat_page(st.session_state["level"])
    
-    if st.button(label="Start Chat",on_click=complete):
+    if st.button(label="Start Chat",type="primary",on_click=complete):
         st.session_state.complete=True
 
 if st.session_state.complete:
 
-
+    st.subheader('Welcome to Chatbot',divider='rainbow')
     client=OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
     collection_name = st.session_state["level"]
