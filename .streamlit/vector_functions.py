@@ -186,7 +186,7 @@ def generate_answer_from_context(retriever, question: str):
 
     # Define the message template for the prompt
     message = """
-    You are Salesforce chatbot who provides assistance to users on Salesforce Platform release helping developers, qa or architect on understanding key details on Salesforce release.
+    You are chatbot who provides assistance to users based on context.
 
     Answer this question using the provided context only.
     {question}
@@ -195,11 +195,7 @@ def generate_answer_from_context(retriever, question: str):
     {context}
 
     assistant:
-    Provide bulleted output in new lines with reference link to any resource or file if available as below examples:
-    - content1
-    - content2
-    -content n
-    Reference resource: Resource Link.
+    Provide out in well structured JSON format with bullet points, new line and punctuation where needed so that it will be easy to read NOT a big long paragraph.
 
     """
 
