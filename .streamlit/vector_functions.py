@@ -195,7 +195,7 @@ def generate_answer_from_context(retriever, question: str):
     {context}
 
     assistant:
-    Provide out in well structured format with bullet points, new line and punctuation where needed so that it will be easy to read NOT a big long paragraph.
+    Provide out in well structured format showing titles and updates in new line in plain text with bullet points, new line and punctuation where needed so that it will be easy to read NOT a big long paragraph.
 
     """
 
