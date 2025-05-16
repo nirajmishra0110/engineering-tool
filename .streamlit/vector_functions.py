@@ -195,7 +195,7 @@ def generate_answer_from_context(retriever, question: str):
     {context}
 
     assistant:
-    Provide out in well structured format showing titles and updates in new line in plain text with bullet points where needed so that it will be easy to read NOT a big long paragraph.
+    Provide out in well structured format showing titles and updates in new line in plain text with bullet points, new line and punctuation where needed so that it will be easy to read NOT a big long paragraph.
 
     """
 
@@ -205,7 +205,7 @@ def generate_answer_from_context(retriever, question: str):
     # Create a RAG (Retrieval-Augmented Generation) chain
     # This chain retrieves context, passes through the question,
     # formats the prompt, and generates an answer using the language model
-    rag_chain = {"context": retriever, "question": RunnablePassthrough()} | prompt | llm 
+    rag_chain = {"context": retriever, "question": RunnablePassthrough()} | prompt | llm | StrOutputParser()
 
     # Invoke the RAG chain with the question and return the generated content
     return rag_chain.invoke(question)
